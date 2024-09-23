@@ -1,0 +1,611 @@
+Analysis & Synthesis report for wrapper
+Tue Apr 16 20:25:59 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: filter:filt1
+ 14. Port Connectivity Checks: "read_SW:SW1"
+ 15. Port Connectivity Checks: "filter:filt1"
+ 16. Port Connectivity Checks: "keytr:keytr1"
+ 17. Port Connectivity Checks: "i2c:i2c1"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Apr 16 20:25:59 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; wrapper                                     ;
+; Top-level Entity Name           ; wrapper                                     ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 81                                          ;
+; Total pins                      ; 15                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 16                                          ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; wrapper            ; wrapper            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
+; i2c.v                            ; yes             ; User Verilog HDL File        ; D:/quartus/DSP_FPGA/i2c.v       ;         ;
+; CLOCK_500.v                      ; yes             ; User Verilog HDL File        ; D:/quartus/DSP_FPGA/CLOCK_500.v ;         ;
+; keytr.v                          ; yes             ; User Verilog HDL File        ; D:/quartus/DSP_FPGA/keytr.v     ;         ;
+; filter.v                         ; yes             ; User Verilog HDL File        ; D:/quartus/DSP_FPGA/filter.v    ;         ;
+; read_SW.v                        ; yes             ; User Verilog HDL File        ; D:/quartus/DSP_FPGA/read_SW.v   ;         ;
+; wrapper.v                        ; yes             ; Auto-Found Verilog HDL File  ; D:/quartus/DSP_FPGA/wrapper.v   ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
+
+
++--------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                    ;
++---------------------------------------------+----------------------------------+
+; Resource                                    ; Usage                            ;
++---------------------------------------------+----------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 50                               ;
+;                                             ;                                  ;
+; Combinational ALUT usage for logic          ; 79                               ;
+;     -- 7 input functions                    ; 1                                ;
+;     -- 6 input functions                    ; 14                               ;
+;     -- 5 input functions                    ; 5                                ;
+;     -- 4 input functions                    ; 17                               ;
+;     -- <=3 input functions                  ; 42                               ;
+;                                             ;                                  ;
+; Dedicated logic registers                   ; 81                               ;
+;                                             ;                                  ;
+; I/O pins                                    ; 15                               ;
+;                                             ;                                  ;
+; Total DSP Blocks                            ; 16                               ;
+;                                             ;                                  ;
+; Maximum fan-out node                        ; CLOCK_500:clk_500|COUNTER_500[9] ;
+; Maximum fan-out                             ; 34                               ;
+; Total fan-out                               ; 544                              ;
+; Average fan-out                             ; 2.59                             ;
++---------------------------------------------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+-------------+--------------+
+; |wrapper                   ; 79 (0)              ; 81 (0)                    ; 0                 ; 16         ; 15   ; 0            ; |wrapper                   ; wrapper     ; work         ;
+;    |CLOCK_500:clk_500|     ; 36 (36)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |wrapper|CLOCK_500:clk_500 ; CLOCK_500   ; work         ;
+;    |filter:filt1|          ; 0 (0)               ; 15 (15)                   ; 0                 ; 16         ; 0    ; 0            ; |wrapper|filter:filt1      ; filter      ; work         ;
+;    |i2c:i2c1|              ; 27 (27)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |wrapper|i2c:i2c1          ; i2c         ; work         ;
+;    |keytr:keytr1|          ; 15 (15)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |wrapper|keytr:keytr1      ; keytr       ; work         ;
+;    |read_SW:SW1|           ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|read_SW:SW1       ; read_SW     ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary           ;
++------------------------------------------+-------------+
+; Statistic                                ; Number Used ;
++------------------------------------------+-------------+
+; Independent 27x27                        ; 16          ;
+; Total number of DSP blocks               ; 16          ;
+;                                          ;             ;
+; Fixed Point Unsigned Multiplier          ; 16          ;
+; Fixed Point Dedicated Output Adder Chain ; 15          ;
++------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; filter:filt1|D1[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D2[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D3[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D4[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D5[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D6[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D7[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D8[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D9[1..23]                  ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D10[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D11[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D12[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D13[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D14[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; filter:filt1|D15[1..23]                 ; Stuck at GND due to stuck port data_in ;
+; CLOCK_500:clk_500|DATA_A[8,13..15]      ; Stuck at GND due to stuck port data_in ;
+; i2c:i2c1|SD[22,23]                      ; Stuck at GND due to stuck port data_in ;
+; i2c:i2c1|SD[20,21]                      ; Stuck at VCC due to stuck port data_in ;
+; i2c:i2c1|SD[19]                         ; Stuck at GND due to stuck port data_in ;
+; i2c:i2c1|SD[18]                         ; Stuck at VCC due to stuck port data_in ;
+; i2c:i2c1|SD[8,13..17]                   ; Stuck at GND due to stuck port data_in ;
+; CLOCK_500:clk_500|vol[7]                ; Lost fanout                            ;
+; CLOCK_500:clk_500|address[4,5]          ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 364 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; Register name                ; Reason for Removal        ; Registers Removed due to This Register                                                  ;
++------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; filter:filt1|D1[23]          ; Stuck at GND              ; filter:filt1|D2[23], filter:filt1|D3[23], filter:filt1|D4[23], filter:filt1|D5[23],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[23], filter:filt1|D7[23], filter:filt1|D8[23], filter:filt1|D9[23],     ;
+;                              ;                           ; filter:filt1|D10[23], filter:filt1|D11[23], filter:filt1|D12[23], filter:filt1|D13[23], ;
+;                              ;                           ; filter:filt1|D14[23], filter:filt1|D15[23]                                              ;
+; filter:filt1|D1[22]          ; Stuck at GND              ; filter:filt1|D2[22], filter:filt1|D3[22], filter:filt1|D4[22], filter:filt1|D5[22],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[22], filter:filt1|D7[22], filter:filt1|D8[22], filter:filt1|D9[22],     ;
+;                              ;                           ; filter:filt1|D10[22], filter:filt1|D11[22], filter:filt1|D12[22], filter:filt1|D13[22], ;
+;                              ;                           ; filter:filt1|D14[22], filter:filt1|D15[22]                                              ;
+; filter:filt1|D1[21]          ; Stuck at GND              ; filter:filt1|D2[21], filter:filt1|D3[21], filter:filt1|D4[21], filter:filt1|D5[21],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[21], filter:filt1|D7[21], filter:filt1|D8[21], filter:filt1|D9[21],     ;
+;                              ;                           ; filter:filt1|D10[21], filter:filt1|D11[21], filter:filt1|D12[21], filter:filt1|D13[21], ;
+;                              ;                           ; filter:filt1|D14[21], filter:filt1|D15[21]                                              ;
+; filter:filt1|D1[20]          ; Stuck at GND              ; filter:filt1|D2[20], filter:filt1|D3[20], filter:filt1|D4[20], filter:filt1|D5[20],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[20], filter:filt1|D7[20], filter:filt1|D8[20], filter:filt1|D9[20],     ;
+;                              ;                           ; filter:filt1|D10[20], filter:filt1|D11[20], filter:filt1|D12[20], filter:filt1|D13[20], ;
+;                              ;                           ; filter:filt1|D14[20], filter:filt1|D15[20]                                              ;
+; filter:filt1|D1[19]          ; Stuck at GND              ; filter:filt1|D2[19], filter:filt1|D3[19], filter:filt1|D4[19], filter:filt1|D5[19],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[19], filter:filt1|D7[19], filter:filt1|D8[19], filter:filt1|D9[19],     ;
+;                              ;                           ; filter:filt1|D10[19], filter:filt1|D11[19], filter:filt1|D12[19], filter:filt1|D13[19], ;
+;                              ;                           ; filter:filt1|D14[19], filter:filt1|D15[19]                                              ;
+; filter:filt1|D1[18]          ; Stuck at GND              ; filter:filt1|D2[18], filter:filt1|D3[18], filter:filt1|D4[18], filter:filt1|D5[18],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[18], filter:filt1|D7[18], filter:filt1|D8[18], filter:filt1|D9[18],     ;
+;                              ;                           ; filter:filt1|D10[18], filter:filt1|D11[18], filter:filt1|D12[18], filter:filt1|D13[18], ;
+;                              ;                           ; filter:filt1|D14[18], filter:filt1|D15[18]                                              ;
+; filter:filt1|D1[17]          ; Stuck at GND              ; filter:filt1|D2[17], filter:filt1|D3[17], filter:filt1|D4[17], filter:filt1|D5[17],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[17], filter:filt1|D7[17], filter:filt1|D8[17], filter:filt1|D9[17],     ;
+;                              ;                           ; filter:filt1|D10[17], filter:filt1|D11[17], filter:filt1|D12[17], filter:filt1|D13[17], ;
+;                              ;                           ; filter:filt1|D14[17], filter:filt1|D15[17]                                              ;
+; filter:filt1|D1[16]          ; Stuck at GND              ; filter:filt1|D2[16], filter:filt1|D3[16], filter:filt1|D4[16], filter:filt1|D5[16],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[16], filter:filt1|D7[16], filter:filt1|D8[16], filter:filt1|D9[16],     ;
+;                              ;                           ; filter:filt1|D10[16], filter:filt1|D11[16], filter:filt1|D12[16], filter:filt1|D13[16], ;
+;                              ;                           ; filter:filt1|D14[16], filter:filt1|D15[16]                                              ;
+; filter:filt1|D1[15]          ; Stuck at GND              ; filter:filt1|D2[15], filter:filt1|D3[15], filter:filt1|D4[15], filter:filt1|D5[15],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[15], filter:filt1|D7[15], filter:filt1|D8[15], filter:filt1|D9[15],     ;
+;                              ;                           ; filter:filt1|D10[15], filter:filt1|D11[15], filter:filt1|D12[15], filter:filt1|D13[15], ;
+;                              ;                           ; filter:filt1|D14[15], filter:filt1|D15[15]                                              ;
+; filter:filt1|D1[14]          ; Stuck at GND              ; filter:filt1|D2[14], filter:filt1|D3[14], filter:filt1|D4[14], filter:filt1|D5[14],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[14], filter:filt1|D7[14], filter:filt1|D8[14], filter:filt1|D9[14],     ;
+;                              ;                           ; filter:filt1|D10[14], filter:filt1|D11[14], filter:filt1|D12[14], filter:filt1|D13[14], ;
+;                              ;                           ; filter:filt1|D14[14], filter:filt1|D15[14]                                              ;
+; filter:filt1|D1[13]          ; Stuck at GND              ; filter:filt1|D2[13], filter:filt1|D3[13], filter:filt1|D4[13], filter:filt1|D5[13],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[13], filter:filt1|D7[13], filter:filt1|D8[13], filter:filt1|D9[13],     ;
+;                              ;                           ; filter:filt1|D10[13], filter:filt1|D11[13], filter:filt1|D12[13], filter:filt1|D13[13], ;
+;                              ;                           ; filter:filt1|D14[13], filter:filt1|D15[13]                                              ;
+; filter:filt1|D1[12]          ; Stuck at GND              ; filter:filt1|D2[12], filter:filt1|D3[12], filter:filt1|D4[12], filter:filt1|D5[12],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[12], filter:filt1|D7[12], filter:filt1|D8[12], filter:filt1|D9[12],     ;
+;                              ;                           ; filter:filt1|D10[12], filter:filt1|D11[12], filter:filt1|D12[12], filter:filt1|D13[12], ;
+;                              ;                           ; filter:filt1|D14[12], filter:filt1|D15[12]                                              ;
+; filter:filt1|D1[11]          ; Stuck at GND              ; filter:filt1|D2[11], filter:filt1|D3[11], filter:filt1|D4[11], filter:filt1|D5[11],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[11], filter:filt1|D7[11], filter:filt1|D8[11], filter:filt1|D9[11],     ;
+;                              ;                           ; filter:filt1|D10[11], filter:filt1|D11[11], filter:filt1|D12[11], filter:filt1|D13[11], ;
+;                              ;                           ; filter:filt1|D14[11], filter:filt1|D15[11]                                              ;
+; filter:filt1|D1[10]          ; Stuck at GND              ; filter:filt1|D2[10], filter:filt1|D3[10], filter:filt1|D4[10], filter:filt1|D5[10],     ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[10], filter:filt1|D7[10], filter:filt1|D8[10], filter:filt1|D9[10],     ;
+;                              ;                           ; filter:filt1|D10[10], filter:filt1|D11[10], filter:filt1|D12[10], filter:filt1|D13[10], ;
+;                              ;                           ; filter:filt1|D14[10], filter:filt1|D15[10]                                              ;
+; filter:filt1|D1[9]           ; Stuck at GND              ; filter:filt1|D2[9], filter:filt1|D3[9], filter:filt1|D4[9], filter:filt1|D5[9],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[9], filter:filt1|D7[9], filter:filt1|D8[9], filter:filt1|D9[9],         ;
+;                              ;                           ; filter:filt1|D10[9], filter:filt1|D11[9], filter:filt1|D12[9], filter:filt1|D13[9],     ;
+;                              ;                           ; filter:filt1|D14[9], filter:filt1|D15[9]                                                ;
+; filter:filt1|D1[8]           ; Stuck at GND              ; filter:filt1|D2[8], filter:filt1|D3[8], filter:filt1|D4[8], filter:filt1|D5[8],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[8], filter:filt1|D7[8], filter:filt1|D8[8], filter:filt1|D9[8],         ;
+;                              ;                           ; filter:filt1|D10[8], filter:filt1|D11[8], filter:filt1|D12[8], filter:filt1|D13[8],     ;
+;                              ;                           ; filter:filt1|D14[8], filter:filt1|D15[8]                                                ;
+; filter:filt1|D1[7]           ; Stuck at GND              ; filter:filt1|D2[7], filter:filt1|D3[7], filter:filt1|D4[7], filter:filt1|D5[7],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[7], filter:filt1|D7[7], filter:filt1|D8[7], filter:filt1|D9[7],         ;
+;                              ;                           ; filter:filt1|D10[7], filter:filt1|D11[7], filter:filt1|D12[7], filter:filt1|D13[7],     ;
+;                              ;                           ; filter:filt1|D14[7], filter:filt1|D15[7]                                                ;
+; filter:filt1|D1[6]           ; Stuck at GND              ; filter:filt1|D2[6], filter:filt1|D3[6], filter:filt1|D4[6], filter:filt1|D5[6],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[6], filter:filt1|D7[6], filter:filt1|D8[6], filter:filt1|D9[6],         ;
+;                              ;                           ; filter:filt1|D10[6], filter:filt1|D11[6], filter:filt1|D12[6], filter:filt1|D13[6],     ;
+;                              ;                           ; filter:filt1|D14[6], filter:filt1|D15[6]                                                ;
+; filter:filt1|D1[5]           ; Stuck at GND              ; filter:filt1|D2[5], filter:filt1|D3[5], filter:filt1|D4[5], filter:filt1|D5[5],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[5], filter:filt1|D7[5], filter:filt1|D8[5], filter:filt1|D9[5],         ;
+;                              ;                           ; filter:filt1|D10[5], filter:filt1|D11[5], filter:filt1|D12[5], filter:filt1|D13[5],     ;
+;                              ;                           ; filter:filt1|D14[5], filter:filt1|D15[5]                                                ;
+; filter:filt1|D1[4]           ; Stuck at GND              ; filter:filt1|D2[4], filter:filt1|D3[4], filter:filt1|D4[4], filter:filt1|D5[4],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[4], filter:filt1|D7[4], filter:filt1|D8[4], filter:filt1|D9[4],         ;
+;                              ;                           ; filter:filt1|D10[4], filter:filt1|D11[4], filter:filt1|D12[4], filter:filt1|D13[4],     ;
+;                              ;                           ; filter:filt1|D14[4], filter:filt1|D15[4]                                                ;
+; filter:filt1|D1[3]           ; Stuck at GND              ; filter:filt1|D2[3], filter:filt1|D3[3], filter:filt1|D4[3], filter:filt1|D5[3],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[3], filter:filt1|D7[3], filter:filt1|D8[3], filter:filt1|D9[3],         ;
+;                              ;                           ; filter:filt1|D10[3], filter:filt1|D11[3], filter:filt1|D12[3], filter:filt1|D13[3],     ;
+;                              ;                           ; filter:filt1|D14[3], filter:filt1|D15[3]                                                ;
+; filter:filt1|D1[2]           ; Stuck at GND              ; filter:filt1|D2[2], filter:filt1|D3[2], filter:filt1|D4[2], filter:filt1|D5[2],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[2], filter:filt1|D7[2], filter:filt1|D8[2], filter:filt1|D9[2],         ;
+;                              ;                           ; filter:filt1|D10[2], filter:filt1|D11[2], filter:filt1|D12[2], filter:filt1|D13[2],     ;
+;                              ;                           ; filter:filt1|D14[2], filter:filt1|D15[2]                                                ;
+; filter:filt1|D1[1]           ; Stuck at GND              ; filter:filt1|D2[1], filter:filt1|D3[1], filter:filt1|D4[1], filter:filt1|D5[1],         ;
+;                              ; due to stuck port data_in ; filter:filt1|D6[1], filter:filt1|D7[1], filter:filt1|D8[1], filter:filt1|D9[1],         ;
+;                              ;                           ; filter:filt1|D10[1], filter:filt1|D11[1], filter:filt1|D12[1], filter:filt1|D13[1],     ;
+;                              ;                           ; filter:filt1|D14[1], filter:filt1|D15[1]                                                ;
+; CLOCK_500:clk_500|DATA_A[15] ; Stuck at GND              ; i2c:i2c1|SD[15]                                                                         ;
+;                              ; due to stuck port data_in ;                                                                                         ;
+; CLOCK_500:clk_500|DATA_A[14] ; Stuck at GND              ; i2c:i2c1|SD[14]                                                                         ;
+;                              ; due to stuck port data_in ;                                                                                         ;
+; CLOCK_500:clk_500|DATA_A[13] ; Stuck at GND              ; i2c:i2c1|SD[13]                                                                         ;
+;                              ; due to stuck port data_in ;                                                                                         ;
+; CLOCK_500:clk_500|DATA_A[8]  ; Stuck at GND              ; i2c:i2c1|SD[8]                                                                          ;
+;                              ; due to stuck port data_in ;                                                                                         ;
+; CLOCK_500:clk_500|address[5] ; Stuck at GND              ; CLOCK_500:clk_500|address[4]                                                            ;
+;                              ; due to stuck port data_in ;                                                                                         ;
++------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 81    ;
+; Number of registers using Synchronous Clear  ; 3     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 29    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |wrapper|i2c:i2c1|SD_COUNTER[5]      ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; Yes        ; |wrapper|CLOCK_500:clk_500|DATA_A[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: filter:filt1   ;
++----------------+--------------------------+-----------------+
+; Parameter Name ; Value                    ; Type            ;
++----------------+--------------------------+-----------------+
+; tap0           ; 000000001001011010101111 ; Unsigned Binary ;
+; tap1           ; 111111111001011000010000 ; Unsigned Binary ;
+; tap2           ; 111111110100000001000101 ; Unsigned Binary ;
+; tap3           ; 000000000011000110011011 ; Unsigned Binary ;
+; tap4           ; 000000001101100100000001 ; Unsigned Binary ;
+; tap5           ; 000000000001000110000001 ; Unsigned Binary ;
+; tap6           ; 111111110010000110011011 ; Unsigned Binary ;
+; tap7           ; 111111111010011000111000 ; Unsigned Binary ;
+; tap8           ; 000000001100110101001010 ; Unsigned Binary ;
+; tap9           ; 000000001010000010001111 ; Unsigned Binary ;
+; tap10          ; 111111110101101100001011 ; Unsigned Binary ;
+; tap11          ; 111111110010000101011111 ; Unsigned Binary ;
+; tap12          ; 000000000110011011001000 ; Unsigned Binary ;
+; tap13          ; 000000010000110011010001 ; Unsigned Binary ;
+; tap14          ; 111111111110100110101000 ; Unsigned Binary ;
+; tap15          ; 111111101101101101100000 ; Unsigned Binary ;
++----------------+--------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "read_SW:SW1"                                                                                                             ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                  ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; DAC  ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "DAC[23..1]" have no fanouts ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "filter:filt1"           ;
++------------------+-------+----------+--------------+
+; Port             ; Type  ; Severity ; Details      ;
++------------------+-------+----------+--------------+
+; sound_org[23..1] ; Input ; Info     ; Stuck at GND ;
++------------------+-------+----------+--------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "keytr:keytr1"             ;
++---------+--------+----------+------------------------+
+; Port    ; Type   ; Severity ; Details                ;
++---------+--------+----------+------------------------+
+; ON      ; Output ; Info     ; Explicitly unconnected ;
+; counter ; Output ; Info     ; Explicitly unconnected ;
++---------+--------+----------+------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "i2c:i2c1"                    ;
++------------+--------+----------+------------------------+
+; Port       ; Type   ; Severity ; Details                ;
++------------+--------+----------+------------------------+
+; W_R        ; Input  ; Info     ; Explicitly unconnected ;
+; ACK        ; Output ; Info     ; Explicitly unconnected ;
+; RESET      ; Input  ; Info     ; Stuck at VCC           ;
+; SD_COUNTER ; Output ; Info     ; Explicitly unconnected ;
+; SDO        ; Output ; Info     ; Explicitly unconnected ;
++------------+--------+----------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 81                          ;
+;     CLR               ; 20                          ;
+;     ENA               ; 12                          ;
+;     ENA CLR           ; 9                           ;
+;     SCLR              ; 3                           ;
+;     SLD               ; 1                           ;
+;     plain             ; 36                          ;
+; arriav_io_obuf        ; 4                           ;
+; arriav_lcell_comb     ; 79                          ;
+;     arith             ; 26                          ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 2                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 52                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 17                          ;
+;         5 data inputs ; 5                           ;
+;         6 data inputs ; 14                          ;
+; arriav_mac            ; 16                          ;
+; boundary_port         ; 15                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 0.25                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Apr 16 20:25:48 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wrapper -c wrapper
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file i2c.v
+    Info (12023): Found entity 1: i2c File: D:/quartus/DSP_FPGA/i2c.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file clock_500.v
+    Info (12023): Found entity 1: CLOCK_500 File: D:/quartus/DSP_FPGA/CLOCK_500.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file keytr.v
+    Info (12023): Found entity 1: keytr File: D:/quartus/DSP_FPGA/keytr.v Line: 47
+Info (12021): Found 1 design units, including 1 entities, in source file filter.v
+    Info (12023): Found entity 1: filter File: D:/quartus/DSP_FPGA/filter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file noise_generator.v
+    Info (12023): Found entity 1: noise_generator File: D:/quartus/DSP_FPGA/noise_generator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file read_sw.v
+    Info (12023): Found entity 1: read_SW File: D:/quartus/DSP_FPGA/read_SW.v Line: 1
+Warning (12125): Using design file wrapper.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: wrapper File: D:/quartus/DSP_FPGA/wrapper.v Line: 6
+Info (12127): Elaborating entity "wrapper" for the top level hierarchy
+Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:clk_500" File: D:/quartus/DSP_FPGA/wrapper.v Line: 76
+Warning (10230): Verilog HDL assignment warning at CLOCK_500.v(72): truncated value with size 32 to match size of target (1) File: D:/quartus/DSP_FPGA/CLOCK_500.v Line: 72
+Warning (10230): Verilog HDL assignment warning at CLOCK_500.v(76): truncated value with size 32 to match size of target (6) File: D:/quartus/DSP_FPGA/CLOCK_500.v Line: 76
+Warning (10230): Verilog HDL assignment warning at CLOCK_500.v(82): truncated value with size 32 to match size of target (8) File: D:/quartus/DSP_FPGA/CLOCK_500.v Line: 82
+Warning (10230): Verilog HDL assignment warning at CLOCK_500.v(104): truncated value with size 32 to match size of target (11) File: D:/quartus/DSP_FPGA/CLOCK_500.v Line: 104
+Info (12128): Elaborating entity "i2c" for hierarchy "i2c:i2c1" File: D:/quartus/DSP_FPGA/wrapper.v Line: 91
+Warning (10230): Verilog HDL assignment warning at i2c.v(78): truncated value with size 32 to match size of target (1) File: D:/quartus/DSP_FPGA/i2c.v Line: 78
+Warning (10230): Verilog HDL assignment warning at i2c.v(77): truncated value with size 32 to match size of target (1) File: D:/quartus/DSP_FPGA/i2c.v Line: 77
+Warning (10230): Verilog HDL assignment warning at i2c.v(90): truncated value with size 32 to match size of target (6) File: D:/quartus/DSP_FPGA/i2c.v Line: 90
+Info (12128): Elaborating entity "keytr" for hierarchy "keytr:keytr1" File: D:/quartus/DSP_FPGA/wrapper.v Line: 99
+Warning (10230): Verilog HDL assignment warning at keytr.v(65): truncated value with size 32 to match size of target (1) File: D:/quartus/DSP_FPGA/keytr.v Line: 65
+Warning (10230): Verilog HDL assignment warning at keytr.v(71): truncated value with size 32 to match size of target (10) File: D:/quartus/DSP_FPGA/keytr.v Line: 71
+Info (12128): Elaborating entity "filter" for hierarchy "filter:filt1" File: D:/quartus/DSP_FPGA/wrapper.v Line: 113
+Info (12128): Elaborating entity "read_SW" for hierarchy "read_SW:SW1" File: D:/quartus/DSP_FPGA/wrapper.v Line: 119
+Warning (12069): Ignored assignment(s) for "SW[0]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[1]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[2]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[3]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[4]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[5]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[6]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[7]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[8]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[9]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[0]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[1]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[2]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[3]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[4]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[5]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[6]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[7]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[8]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12069): Ignored assignment(s) for "SW[9]" because "SW" is not a bus or array File: D:/quartus/DSP_FPGA/wrapper.v Line: 21
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: D:/quartus/DSP_FPGA/wrapper.v Line: 36
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: D:/quartus/DSP_FPGA/wrapper.v Line: 37
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: D:/quartus/DSP_FPGA/wrapper.v Line: 39
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: D:/quartus/DSP_FPGA/wrapper.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: D:/quartus/DSP_FPGA/wrapper.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: D:/quartus/DSP_FPGA/wrapper.v Line: 11
+Info (21057): Implemented 137 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21060): Implemented 4 bidirectional pins
+    Info (21061): Implemented 106 logic cells
+    Info (21062): Implemented 16 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 4867 megabytes
+    Info: Processing ended: Tue Apr 16 20:25:59 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:07
+
+

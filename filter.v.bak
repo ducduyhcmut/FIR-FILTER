@@ -1,0 +1,67 @@
+module filter(rst,clk,sound_org,sound_fil);
+
+	input rst, clk;
+	input [23:0] sound_org;
+	output [23:0] sound_fil;
+	
+	parameter [23:0] 	tap0 = 23'd27571,
+							tap1 = -23'd114348,
+							tap2 = -23'd44340,
+							tap3 = 23'd342031,
+							tap4 = -23'd87475,
+							tap5 = -23'd857146,
+							tap6 = 23'd831834,
+							tap7 = 23'd4071579,
+							tap8 = 23'd4071579,
+							tap9 = 23'd831834,
+							tap10 = -23'd857146,
+							tap11 = -23'd87475,
+							tap12 = 23'd342031,
+							tap13 = -23'd44340,
+							tap14 = -23'd114348,
+							tap15 = 23'd27571
+							;
+	
+	reg [23:0] D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15;
+	
+	assign sound_fil = sound_org*tap0 + D1*tap1 +  D2*tap2 + D3*tap3 + D4*tap4 + D5*tap5 + D6*tap6 + D7*tap7 + D8*tap8 + D9*tap9 + D10*tap10 + D11*tap11 + D12*tap12 + D13*tap13 + D14*tap14 + D15*tap15;
+	
+	always @(posedge clk or negedge rst) begin
+		if(!rst) begin
+							D1 <= 0;
+							D2 <= 0;
+							D3 <= 0;
+							D4 <= 0;
+							D5 <= 0;
+							D6 <= 0;
+							D7 <= 0;
+							D8 <= 0;
+							D9 <= 0;
+							D10 <= 0;
+							D11 <= 0;
+							D12 <= 0;
+							D13 <= 0;
+							D14 <= 0;
+							D15 <= 0;
+		
+		end else begin
+							D1 <= sound_org;
+							D2 <= D1;
+							D3 <= D2;
+							D4 <= D3;
+							D5 <= D4;
+							D6 <= D5;
+							D7 <= D6;
+							D8 <= D7;
+							D9 <= D8;
+							D10 <= D9;
+							D11 <= D10;
+							D12 <= D11;
+							D13 <= D12;
+							D14 <= D13;
+							D15 <= D14;
+		end
+	
+	end
+	
+endmodule
